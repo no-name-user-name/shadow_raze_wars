@@ -1,0 +1,367 @@
+
+// Dota Abilities Override File
+"DOTAAbilities"
+{
+	"Version"		"1"
+
+	"nevermore_shadowraze1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+		"MaxLevel"                                            "1"
+		"RequiredLevel"                                       "1"
+		"LevelsBetweenUpgrades"                               "0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"                                    "0.55"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                                     "0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"shadowraze_damage"
+			{
+			"value"                                           "100"
+			}
+			"shadowraze_radius"
+			{
+			"value"                                           "250"
+			"affected_by_aoe_increase"                        "1"
+			}
+			"shadowraze_range"                                  "200"
+			"shadowraze_cooldown"                               "5"
+			"stack_bonus_damage"
+			{
+			"value"                                           "50"
+			"CalculateSpellDamageTooltip"                     "0"
+			}
+			"duration"
+			{
+			"value"                                           "4"
+			}
+			"procs_attack"
+			{
+			"value"                                           "0"
+			}
+			"movement_speed_pct"                                "-5"
+			"turn_rate_pct"                                     "0"
+
+			"AbilityCooldown"
+			{
+			"value"                                           "5"
+			}
+		}
+	}
+	
+	"nevermore_shadowraze2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+		"MaxLevel"                                            "1"
+		"RequiredLevel"                                       "1"
+		"LevelsBetweenUpgrades"                               "0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"                                    "0.55"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                                     "0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"shadowraze_damage"
+			{
+			"value"                                           "100"
+			}
+			"shadowraze_radius"
+			{
+			"value"                                           "250"
+			"affected_by_aoe_increase"                        "1"
+			}
+			"shadowraze_range"                                  "450"
+			"shadowraze_cooldown"                               "5"
+			"stack_bonus_damage"
+			{
+			"value"                                           "50"
+			"CalculateSpellDamageTooltip"                     "0"
+			}
+			"duration"
+			{
+			"value"                                           "4"
+			}
+			"procs_attack"
+			{
+			"value"                                           "0"
+			}
+			"movement_speed_pct"                                "-5"
+			"turn_rate_pct"                                     "0"
+
+			"AbilityCooldown"
+			{
+			"value"                                           "5"
+			}
+		}
+	}	
+
+	"nevermore_shadowraze3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"                               "DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"                                   "SPELL_IMMUNITY_ENEMIES_NO"
+
+		"MaxLevel"                                            "1"
+		"RequiredLevel"                                       "1"
+		"LevelsBetweenUpgrades"                               "0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"                                    "0.55"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"                                     "0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"shadowraze_damage"
+			{
+			"value"                                           "100"
+			}
+			"shadowraze_radius"
+			{
+			"value"                                           "250"
+			"affected_by_aoe_increase"                        "1"
+			}
+			"shadowraze_range"                                  "700"
+			"shadowraze_cooldown"                               "5"
+			"stack_bonus_damage"
+			{
+			"value"                                           "50"
+			"CalculateSpellDamageTooltip"                     "0"
+			}
+			"duration"
+			{
+			"value"                                           "4"
+			}
+			"procs_attack"
+			{
+			"value"                                           "0"
+			}
+			"movement_speed_pct"                                "-5"
+			"turn_rate_pct"                                     "0"
+
+			"AbilityCooldown"
+			{
+			"value"                                           "5"
+			}
+		}
+	}
+
+	"nevermore_requiem"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"2"
+		"HasScepterUpgrade"				"0"
+		"MaxLevel"						"1"
+
+		"AbilitySound"					"Hero_Nevermore.RequiemOfSouls"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"1.67"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"40"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.5"	// Primarily about the damage
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"AbilityCooldown"				
+				{
+					"value"		"20"
+					"special_bonus_scepter"	"0"
+				}
+
+				"requiem_radius"	
+				{
+					"value"		"500"		
+					"affected_by_aoe_increase"	"1"
+				}
+				"requiem_reduction_ms"	"15"
+				"requiem_reduction_mres"	"15"
+
+				"requiem_slow_duration"	
+				{
+					"value"	"0"
+				}
+				
+				"requiem_slow_duration_max"	
+				{
+					"value"	"0"
+				}
+				"requiem_reduction_radius"	"700"
+				"requiem_soul_conversion"	"1"
+				"requiem_line_width_start"	
+				{
+					"value"		"125"
+					"affected_by_aoe_increase"	"1"
+				}
+				"requiem_line_width_end"	
+				{
+					"value"			"350"
+					"affected_by_aoe_increase"	"1"
+				}
+				"requiem_line_speed"	"700"
+				"soul_death_release"	"0.5"
+				// "requiem_heal_pct_scepter"	
+				// {
+				// 	"value"			"100"
+				// 	"RequiresScepter"			"1"
+				// }	
+				// "requiem_damage_pct_scepter"	
+				// {
+				// 	"value"			"60"
+				// 	"RequiresScepter"			"1"
+				// 	"CalculateSpellDamageTooltip"	"0"
+				// }
+		}
+	}
+
+	"item_ward_sentry"
+	{
+		"ItemPurchasable"	"0"
+		"ItemDroppable"	"0"
+	}
+
+	"item_glimmer_cape"{
+		"ItemPurchasable"	"0"
+		"ItemDroppable"	"0"
+	}
+
+	"item_mage_slayer"						"remove"
+	"item_infused_raindrop" 				"remove"
+	"item_pipe"						"remove"
+	"item_eternal_shroud" 					"remove"
+	// "item_glimmer_cape"				"remove"
+	"item_mask_of_madness"			"remove"
+	"item_hand_of_midas"				"remove"
+	"item_urn_of_shadows"			"remove"
+	"item_pavise"							"remove"
+	"item_vladmir"					"remove"
+	"item_spirit_vessel"					"remove"
+	"item_witch_blade"					"remove"
+	"item_dagon"					"remove"
+	"item_orchid"					"remove"
+	"item_solar_crest"					"remove"
+	"item_aghanims_shard"					"remove"
+	"item_ultimate_scepter"					"remove"
+	"item_ultimate_scepter_2"					"remove"
+	"item_vanguard"					"remove"
+	"item_blade_mail"					"remove"
+	"item_aeon_disk"					"remove"
+	"item_crimson_guard"					"remove"
+	"item_lotus_orb"					"remove"
+	"item_hurricane_pike"					"remove"
+	"item_sphere"					"remove"
+	"item_assault"					"remove"
+	"item_heart"					"remove"
+	"item_helm_of_the_dominator"					"remove"
+	"item_lesser_crit"					"remove"
+	"item_greater_crit"					"remove"
+	"item_basher"					"remove"
+	"item_desolator"					"remove"
+	"item_bfury"					"remove"
+	"item_monkey_king_bar"					"remove"
+	"item_butterfly"					"remove"
+	"item_radiance"					"remove"
+	"item_silver_edge"					"remove"
+	"item_bloodthorn"					"remove"
+	"item_abyssal_blade"					"remove"
+	"item_dragon_lance"					"remove"
+	"item_maelstrom"					"remove"
+	"item_mjollnir"					"remove"
+	"item_travel_boots"					"remove"
+	"item_moon_shard"					"remove"
+	"item_heavens_halberd"					"remove"
+	"item_satanic"					"remove"
+	"item_skadi"					"remove"
+	"item_skadi"					"remove"
+	"item_wind_waker"					"remove"
+	"item_black_king_bar"	"remove"
+	"item_tranquil_boots"	"remove"
+	"item_boots_of_bearing"	"remove"
+	"item_holy_locket"	"remove"
+	"item_ancient_janggo"	"remove"
+	"item_sange"	"remove"
+	"item_pers"	"remove"
+	"item_echo_sabre"	"remove"
+	"item_orb_of_corrosion"	"remove"
+	"item_falcon_blade"	"remove"
+	"item_mekansm"	"remove"
+	"item_meteor_hammer"	"remove"
+	"item_rapier"	"remove"
+	"item_revenants_brooch"	"remove"
+	"item_dagon_1"	"remove"
+	"item_dagon_2"	"remove"
+	"item_dagon_3"	"remove"
+	"item_dagon_4"	"remove"
+	"item_dagon_5"	"remove"
+	"item_recipe_dagon"	"remove"
+	"item_oblivion_staff"	"remove"
+	"item_guardian_greaves"	"remove"
+	"item_refresher"	"remove"
+	"item_octarine_core"	"remove"
+	// "item_gem"	"remove"
+	"item_blood_grenade"	"remove"
+	"item_kaya_and_sange" "remove"
+	"item_sange_and_yasha" "remove"
+	"item_diffusal_blade" "remove"
+	"item_disperser" "remove"
+	"item_soul_ring" "remove"
+	"item_arcane_boots_2" "remove"
+	"item_arcane_boots" "remove"
+	// "item_tpscroll" "remove"
+	
+	
+}

@@ -1,0 +1,21 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/custom_hud.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/custom_hud.js" />
+    </scripts>
+
+	<Panel class="ScorePanel">
+
+        	<Panel class="ScoreboardLeft">
+                <Panel class="VictoryPanel">
+                    <Label id="Goal" text="Goal" />
+                    <Label id="VictoryPoints" text="999" />
+                    <Label id="Timer" text="--:--" />
+                </Panel>
+            </Panel>
+
+	</Panel>
+</root>

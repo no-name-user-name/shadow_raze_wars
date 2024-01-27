@@ -1,0 +1,13 @@
+<root>
+    <styles>
+        <include src="file://{resources}/styles/custom_game/dotastyles.css" />
+    </scripts>
+    
+	<scripts>
+		<!-- <include src="file://{resources}/scripts/custom_game/custom_ui_manifest.js" /> -->
+	</scripts>
+
+	<Panel class="Test">
+
+	</Panel>
+</root>

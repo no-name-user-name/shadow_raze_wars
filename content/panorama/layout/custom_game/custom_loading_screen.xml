@@ -1,0 +1,44 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/custom_loading_screen.js" />
+    </scripts>
+
+	<Panel class="CustomLoadingScreen">
+
+		<Panel id="PopupESCMenu">
+		        <Panel id="ESCActionButtons" class="">
+					<Label id="KillsMode" text="#killsMode" />
+
+					<Button class="ButtonBevel ESCMenuButton active" data='10' onactivate="SetKills(10)">
+						<Label text="#10kills" />
+					</Button>
+
+					<Button class="ButtonBevel ESCMenuButton" data='15' onactivate="SetKills(15)">
+						<Label text="#15kills" />
+					</Button>
+
+					<Button class="ButtonBevel ESCMenuButton" data='20' onactivate="SetKills(20)">
+						<Label text="#20kills" />
+					</Button>
+
+					<Button class="ButtonBevel ESCMenuButton" data='25' onactivate="SetKills(25)">
+						<Label text="#25kills" />
+					</Button>
+
+					<Button class="ButtonBevel ESCMenuButton" data='30' onactivate="SetKills(30)">
+						<Label text="#30kills" />
+					</Button>
+
+					<!-- <Button class="ButtonBevel ESCMenuButton" data='1' onactivate="SetKills(1)">
+						<Label text="1 килов" />
+					</Button> -->
+				</Panel>
+		</Panel>
+
+		<Image id="bg" src="file://{images}/custom_game/loading_screen/custom_loading_screen.psd" />
+	</Panel>
+</root>

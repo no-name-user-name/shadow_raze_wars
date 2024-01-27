@@ -1,0 +1,5 @@
+
+"CustomHeroList"
+{
+	"npc_dota_hero_nevermore"			"1"
+}

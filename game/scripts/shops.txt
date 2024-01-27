@@ -1,0 +1,88 @@
+"dota_shops"
+{
+        "consumables"
+        {
+			"item" 		"item_tango"
+			"item" 		"item_flask"
+			"item" 		"item_bottle"    
+        }
+
+        "attributes"
+        { 
+                        "item"          "item_ward_observer"     
+                        "item"          "item_gem"
+			"item" 		"item_dust"       
+        }
+
+        "armaments"
+        {
+                "item"  "item_boots"
+                "item"  "item_magic_stick"
+        }
+
+        "weapons_armor"
+        {
+                                "item"          "item_cloak"
+        }
+
+        "misc"
+        {
+                                "item"          "item_blink"
+        }        
+        
+        "basics"
+        {
+                                "item"          "item_magic_wand"
+                                "item"          "item_phase_boots"
+                               "item"          "item_power_treads"
+        }
+
+        "support"
+        {
+                                "item"          "item_swift_blink"
+                                "item"          "item_arcane_blink"
+                                "item"          "item_overwhelming_blink"  
+        }
+                                
+        "magics"                        
+        {
+                                "item"          "item_veil_of_discord"
+                                "item"          "item_force_staff"
+                                "item"          "item_cyclone"
+                                "item"          "item_rod_of_atos"
+        }
+                     
+        "defense"
+        {
+                               "item"          "item_shivas_guard"                                
+                                "item"          "item_manta"
+                                // "item"          "item_glimmer_cape"
+        }
+                        
+        "weapons"
+        {
+                                "item"          "item_invis_sword" 
+                                "item"          "item_ethereal_blade"
+                                "item"          "item_armlet"
+                                "item"          "item_nullifier"                     
+        }
+               
+                            
+        "artifacts"
+        {        
+                                "item"          "item_yasha_and_kaya"              
+
+        }
+
+        "sideshop1"  
+        {		
+        }
+
+        "sideshop2"
+        {
+        }
+        
+        "secretshop"
+        {    
+        }        
+}
