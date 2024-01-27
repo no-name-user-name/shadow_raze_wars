@@ -17,7 +17,7 @@
 	HeroGuidesSupported = true
 	ForceDefaultGuide = true
 	MinimalPrecache = false
-	MinPlayers = 2
+	MinPlayers = 1
 	MaxPlayers = 8
 	map_options = [  ]
 	PenaltiesEnabled = false
