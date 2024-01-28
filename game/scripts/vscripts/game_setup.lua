@@ -17,9 +17,15 @@ function GameSetup:init()
 	GameMode:SetFixedRespawnTime(3)
 	GameMode:SetCustomGameForceHero(forceHero)
 	GameMode:SetDaynightCycleDisabled(false)
-	GameMode:SetDaynightCycleAdvanceRate(5)
+	GameMode:SetDaynightCycleAdvanceRate(2.5)
 	-- GameMode:SetTopBarTeamValuesOverride (true)
 	GameMode:SetCustomHeroMaxLevel(10)
+
+	GameMode:SetCustomXPRequiredToReachNextLevel(xp_table)
+	GameMode:SetUseCustomHeroLevels(true)
+	GameMode:SetGiveFreeTPOnDeath(false)
+	GameMode:ClearRuneSpawnFilter()
+
 
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 1 )
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 1 )
@@ -29,7 +35,8 @@ function GameSetup:init()
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_CUSTOM_4, 1 )
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_CUSTOM_5, 1 )
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_CUSTOM_6, 1 )
-	
+
+	GameRules:SetUseCustomHeroXPValues(true)
 	GameRules:SetSameHeroSelectionEnabled(true)
 	GameRules:SetStartingGold(START_GOLD)
 	GameRules:SetFirstBloodActive(true)
@@ -45,8 +52,7 @@ function GameSetup:init()
 
 	GameRules:GetGameModeEntity():SetCameraDistanceOverride( 1250.0 )
 	GameRules:GetGameModeEntity():SetBuybackEnabled( false )
-	GameRules:SetRuneSpawnTime(30)
 
-	GameRules:SetTimeOfDay(4.10)
+	GameRules:SetTimeOfDay(2.2)
 end
 

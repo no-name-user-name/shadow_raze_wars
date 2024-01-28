@@ -26,13 +26,23 @@
 		"DOTA_Tooltip_custom_attack_Description" "Enemies need to be killed only with abilities"
 
 		"DOTA_Tooltip_spells_upgrade" "Ability Enhancement"
-		"DOTA_Tooltip_spells_upgrade_Description" "+20 damage to ShadowRaze and +5 damage to Requiem per character level"
+		"DOTA_Tooltip_spells_upgrade_Description" "+15 percents damage to ShadowRaze and Requiem per character level"
 
-		"killsMode" "Game mode:"
-		"10kills" "Up to 10 kills"
-		"15kills" "Up to 15 kills"
-		"20kills" "Up to 20 kills"
-		"25kills" "Up to 25 kills"
-		"30kills" "Up to 30 kills"
+		"killsMode" "Kills:"
+		"kills1" "Up to 10 kills"
+		"kills2" "Up to 20 kills"
+		"kills3" "Up to 30 kills"
+		"kills4" "Up to 40 kills"
+		"kills5" "Up to 50 kills"
+
+		"timerMode" "Timer:"
+		"timer1" "15 min"
+		"timer2" "20 min"
+		"timer3" "30 min"
+		"timer4" "No Limit"
+
+		"HuntMode" "Hunt Mode:"
+		"HuntOn" "On"
+		"HuntOff" "Off"
 	}
 }

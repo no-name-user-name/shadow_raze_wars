@@ -38,9 +38,8 @@ function UnitVarToPlayerID(unitvar)
  
 
  function CountdownTimer()
-  nCOUNTDOWNTIMER = nCOUNTDOWNTIMER - 1
-  local t = nCOUNTDOWNTIMER
-  --print( t )
+  COUNTDOWNTIMER = COUNTDOWNTIMER - 1
+  local t = COUNTDOWNTIMER
   local minutes = math.floor(t / 60)
   local seconds = t - (minutes * 60)
   local m10 = math.floor(minutes / 10)
@@ -58,4 +57,14 @@ function UnitVarToPlayerID(unitvar)
   if t <= 120 then
       CustomGameEventManager:Send_ServerToAllClients( "time_remaining", broadcast_gametimer )
   end
+end
+
+function existsInArray(array, value)
+  for i, v in ipairs(array) do
+      if v == value then
+          return true
+      end
+  end
+
+  return false
 end

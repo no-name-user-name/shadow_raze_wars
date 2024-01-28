@@ -26,13 +26,23 @@
 		"DOTA_Tooltip_custom_attack_Description" "Противников нужно убивать только способностями"
 
 		"DOTA_Tooltip_spells_upgrade" "Усиление способностей"
-		"DOTA_Tooltip_spells_upgrade_Description" "+20 урона к ShadowRaze и +5 урона к Requiem за каждый уровень персонажа"
+		"DOTA_Tooltip_spells_upgrade_Description" "+15 процентов к урону ShadowRaze и Requiem за каждый уровень персонажа"
 
-		"killsMode" "Режим игры:"
-		"10kills" "До 10 убийств"
-		"15kills" "До 15 убийств"
-		"20kills" "До 20 убийств"
-		"25kills" "До 25 убийств"
-		"30kills" "До 30 убийств"
+		"killsMode" "Убийств:"
+		"kills1" "До 10 убийств"
+		"kills2" "До 20 убийств"
+		"kills3" "До 30 убийств"
+		"kills4" "До 40 убийств"
+		"kills5" "До 50 убийств"
+
+		"timerMode" "Таймер:"
+		"timer1" "15 мин"
+		"timer2" "20 мин"
+		"timer3" "30 мин"
+		"timer4" "Безлимит"
+
+		"HuntMode" "Режим охоты:"
+		"HuntOn" "Вкл"
+		"HuntOff" "Выкл"
 	}
 }

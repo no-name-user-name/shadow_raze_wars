@@ -10,35 +10,63 @@
 	<Panel class="CustomLoadingScreen">
 
 		<Panel id="PopupESCMenu">
-		        <Panel id="ESCActionButtons" class="">
-					<Label id="KillsMode" text="#killsMode" />
+		        <Panel id="KillsMode" class="modePanel">
+					<Label class="modeLabel" text="#KillsMode" />
 
-					<Button class="ButtonBevel ESCMenuButton active" data='10' onactivate="SetKills(10)">
-						<Label text="#10kills" />
+					<Button class="ButtonBevel ESCMenuButton active" data='10' onactivate="setMode('Kills', 10)">
+						<Label text="#Kills1" />
 					</Button>
 
-					<Button class="ButtonBevel ESCMenuButton" data='15' onactivate="SetKills(15)">
-						<Label text="#15kills" />
+					<Button class="ButtonBevel ESCMenuButton" data='20' onactivate="setMode('Kills', 20)">
+						<Label text="#Kills2" />
 					</Button>
 
-					<Button class="ButtonBevel ESCMenuButton" data='20' onactivate="SetKills(20)">
-						<Label text="#20kills" />
+					<Button class="ButtonBevel ESCMenuButton" data='30' onactivate="setMode('Kills', 30)">
+						<Label text="#Kills3" />
 					</Button>
 
-					<Button class="ButtonBevel ESCMenuButton" data='25' onactivate="SetKills(25)">
-						<Label text="#25kills" />
+					<Button class="ButtonBevel ESCMenuButton" data='40' onactivate="setMode('Kills', 40)">
+						<Label text="#Kills4" />
 					</Button>
 
-					<Button class="ButtonBevel ESCMenuButton" data='30' onactivate="SetKills(30)">
-						<Label text="#30kills" />
+					<Button class="ButtonBevel ESCMenuButton" data='50' onactivate="setMode('Kills', 50)">
+						<Label text="#Kills5" />
+					</Button>
+				</Panel>
+
+		        <Panel id="TimerMode" class="modePanel">
+					<Label class="modeLabel" text="#TimerMode" />
+
+					<Button class="ButtonBevel ESCMenuButton active" data='15' onactivate="setMode('Timer', 15)">
+						<Label text="#Timer1" />
 					</Button>
 
-					<!-- <Button class="ButtonBevel ESCMenuButton" data='1' onactivate="SetKills(1)">
-						<Label text="1 килов" />
-					</Button> -->
+					<Button class="ButtonBevel ESCMenuButton" data='20' onactivate="setMode('Timer', 20)">
+						<Label text="#Timer2" />
+					</Button>
+
+					<Button class="ButtonBevel ESCMenuButton" data='30' onactivate="setMode('Timer', 30)">
+						<Label text="#Timer3" />
+					</Button>
+
+					<Button class="ButtonBevel ESCMenuButton" data='-1' onactivate="setMode('Timer', -1)">
+						<Label text="#Timer4" />
+					</Button>
+				</Panel>
+
+		        <Panel id="HuntMode" class="modePanel">
+					<Label class="modeLabel" text="#HuntMode" />
+
+					<Button class="ButtonBevel ESCMenuButton active" data='1' onactivate="setMode('Hunt', 1)">
+						<Label text="#HuntOn" />
+					</Button>
+
+					<Button class="ButtonBevel ESCMenuButton" data='0' onactivate="setMode('Hunt', 0)">
+						<Label text="#HuntOff" />
+					</Button>
 				</Panel>
 		</Panel>
 
-		<Image id="bg" src="file://{images}/custom_game/loading_screen/custom_loading_screen.psd" />
+		<Image id="bg" src="file://{images}/custom_game/loading_screen/custom_loading_screen3.psd" />
 	</Panel>
 </root>
