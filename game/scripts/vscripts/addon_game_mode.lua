@@ -38,7 +38,10 @@ function SRWarsGameMode:InitGameMode()
 	CustomGameEventManager:RegisterListener("setKills", setKills)
 	CustomGameEventManager:RegisterListener("setTimer", setTimer)
 	CustomGameEventManager:RegisterListener("setHunt", setHunt)
+	CustomGameEventManager:RegisterListener("setHunt", setHunt)
 	
+	
+
 	ListenToGameEvent("dota_player_gained_level", Dynamic_Wrap(SRWarsGameMode, "OnPlayerGainLevel"), self)
 	ListenToGameEvent("dota_player_pick_hero", Dynamic_Wrap(SRWarsGameMode, "OnPlayerPickHero"), self)
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(SRWarsGameMode, "OnKill"), self)
@@ -158,10 +161,12 @@ function SRWarsGameMode:GameStateChange(key)
 	if key.new_state == DOTA_GAMERULES_STATE_PRE_GAME then
 		CustomNetTables:SetTableValue( "game_state", "victory_condition", { kills_to_win = TEAM_KILLS_TO_WIN } );
 
-	elseif key.new_state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+	elseif key.new_state == 5 then
 		CustomGameEventManager:Send_ServerToAllClients( "show_timer", {} )
 
+		Gold:Init()
 		RuneSpawner:Init()
+		
 		local allHeroes = HeroList:GetAllHeroes()
 		for i, hero in pairs(allHeroes) do
 			local nearest_shop = Entities:FindByClassnameNearest('ent_dota_shop', hero:GetOrigin(), 99999)
@@ -183,6 +188,7 @@ function SRWarsGameMode:OnKill(keys)
 	local nKillerTeamID = killer:GetTeam()
 	local nTeamKillsCount = GetTeamHeroKills(nKillerTeamID)
 	local nKillsRemaining = TEAM_KILLS_TO_WIN - nTeamKillsCount
+
 
 	local tBroadcastEvent =
 	{
@@ -209,6 +215,8 @@ function SRWarsGameMode:OnKill(keys)
 		tBroadcastEvent.close_to_victory = 1
 	end
 
+	CustomGameEventManager:Send_ServerToAllClients( "update_score", tBroadcastEvent )
+
 	local victim =  EntIndexToHScript(keys.entindex_killed)
 	local nVictinID = victim:GetPlayerID()
 	local nVictimTeamID = PlayerResource:GetTeam(nVictinID)
@@ -226,6 +234,8 @@ function SRWarsGameMode:OnKill(keys)
 end
 
 function SRWarsGameMode:OnPlayerPickHero(keys)
+	CustomGameEventManager:Send_ServerToAllClients( "update_hero_selection", {} )
+
 	local unit =  EntIndexToHScript(keys.heroindex)
 	if unit:IsHero() then  
 		local player_id = unit:GetPlayerID()
@@ -266,6 +276,12 @@ end
 
 
 function SRWarsGameMode:EndGame( victoryTeam )
+	-- local tTeamScores = {}
+	-- for team = DOTA_TEAM_FIRST, (DOTA_TEAM_COUNT-1) do
+	-- 	tTeamScores[team] = GetTeamHeroKills(team)
+	-- end
+	-- CustomGameEventManager:Send_ServerToAllClients( "final_scores", tTeamScores )
+
 	GameRules:SetCustomVictoryMessage( m_VictoryMessages[victoryTeam] )
 	GameRules:SetGameWinner( victoryTeam )
 end

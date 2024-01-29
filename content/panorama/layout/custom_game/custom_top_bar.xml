@@ -1,0 +1,16 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/custom_top_bar.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/custom_top_bar.js" />
+    </scripts>
+
+    <Panel class="HeroSelectOverlayRoot">
+		<Panel id="HeroSelectTeamsLeftContainer" class="HeroSelectTeamsContainer" />
+		<Panel id="BSpacer" />
+		<Panel id="HeroSelectTeamsRightContainer" class="HeroSelectTeamsContainer" />
+    </Panel>
+    
+</root>

@@ -23,24 +23,44 @@ function RuneSpawner:Init()
     Timers:CreateTimer(SPAWN_INTERVAL, Dynamic_Wrap(RuneSpawner, 'SpawnRune'))
 end
 
+
+function removeSpawnerFromTable(t, val)
+    local count = 1
+    for i, s in pairs(t) do
+        if s:GetEntityIndex() == val:GetEntityIndex() then
+            table.remove(t, count)
+            return t
+        end
+        count = count + 1
+    end
+    return t
+end
+
 function RuneSpawner:SpawnRune()
-	local spawners = Entities:FindAllByName('custom_rune_spawner')
     local clearSpawners = {}
     local badSpawners = {}
+	local spawners = Entities:FindAllByName('custom_rune_spawner')
 
-    local randomSpawner = spawners[math.random(#spawners)]
-    local spawnPosition = randomSpawner:GetOrigin()
+    while #spawners ~= 0 do
+        local randomSpawner = spawners[math.random(#spawners)]
+        local spawnPosition = randomSpawner:GetOrigin()
+        local ents = Entities:FindAllInSphere(spawnPosition, 50)
 
-    local ents = Entities:FindAllInSphere(spawnPosition, 50)
+        local isBad = false
+        for i, e in pairs(ents) do
+            if e:GetClassname() == 'dota_item_rune' then
+                spawners = removeSpawnerFromTable(spawners, randomSpawner)
+                isBad = true
+                break
+            end
+        end
 
-    for i, e in pairs(ents) do
-        if e:GetClassname() == 'dota_item_rune' then
-            e:Destroy()
+        if isBad == false then
+            local runeType = RUNES[math.random(#RUNES)]
+            CreateRune(spawnPosition, runeType)
+            break
         end
     end
-
-    local runeType = RUNES[math.random(#RUNES)]
-    CreateRune(spawnPosition, runeType)
-
+    
     return SPAWN_INTERVAL
   end

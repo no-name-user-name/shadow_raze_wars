@@ -8,11 +8,9 @@ require('components/index')
 
 function GameSetup:init()
 	GameRules:EnableCustomGameSetupAutoLaunch(true)
-	GameRules:SetCustomGameSetupAutoLaunchDelay(30)
+	GameRules:SetCustomGameSetupAutoLaunchDelay(60) -- !!!!!!!!!!!!
 
 	local GameMode = GameRules:GetGameModeEntity()
-
-	Gold:Init()
 
 	GameMode:SetFixedRespawnTime(3)
 	GameMode:SetCustomGameForceHero(forceHero)
@@ -46,7 +44,7 @@ function GameSetup:init()
 	GameRules:SetUseUniversalShopMode(true)
 	GameRules:SetCustomGameEndDelay(0)
 	GameRules:SetCustomVictoryMessageDuration(10)
-	GameRules:SetPreGameTime(1)
+	GameRules:SetPreGameTime(3)
 	GameRules:SetHeroSelectionTime(60.0)
 	GameRules:SetTreeRegrowTime(15.0)
 
@@ -54,5 +52,12 @@ function GameSetup:init()
 	GameRules:GetGameModeEntity():SetBuybackEnabled( false )
 
 	GameRules:SetTimeOfDay(2.2)
+
+	-------------------------
+	-- HUD VISION SETTINGS --
+	-------------------------
+	GameMode:SetHUDVisible(DOTA_HUD_VISIBILITY_TOP_TIMEOFDAY, false)
+	GameMode:SetHUDVisible(DOTA_HUD_VISIBILITY_TOP_HEROES, false)
+	-------------------------
 end
 

@@ -12,7 +12,7 @@ START_GOLD = 777
 GOLD_PER_TICK = 10                       -- How much gold should players get per tick? This increases over time in OAA.
 GOLD_TICK_TIME = 1                      -- How long should we wait in seconds between gold ticks?
 
-CUSTOM_RUNE_SPAWN_INTERVAL = 20
+CUSTOM_RUNE_SPAWN_INTERVAL = 30  -- !!!!!!!!!!!!
 
 mTeamColors = {}
 mTeamColors[DOTA_TEAM_GOODGUYS] = { 61, 210, 150 }	--	Teal

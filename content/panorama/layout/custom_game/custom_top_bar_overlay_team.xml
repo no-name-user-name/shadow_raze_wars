@@ -1,0 +1,18 @@
+<root>
+	<styles>
+		<!-- <include src="file://{resources}/styles/dotastyles.css" /> -->
+		<include src="file://{resources}/styles/custom_game/custom_top_bar.css" />
+	</styles>
+
+	<Panel hittest="false" class="HeroSelectTeamRoot">
+		<Panel id="TeamHeaderAndPlayers">
+			<Panel id="TeamGradient" />
+			<Panel id='PlayerPortraitOverlay'>
+				<Image id="PlayerPortrait"/>
+				<Panel id="PlayersContainer" />
+		<Label id="TeamScore" />
+		<Panel id="TeamLogo" />
+		</Panel>
+	</Panel>
+</root>
+
