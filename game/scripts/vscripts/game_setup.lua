@@ -16,7 +16,6 @@ function GameSetup:init()
 	GameMode:SetCustomGameForceHero(forceHero)
 	GameMode:SetDaynightCycleDisabled(false)
 	GameMode:SetDaynightCycleAdvanceRate(2.5)
-	-- GameMode:SetTopBarTeamValuesOverride (true)
 	GameMode:SetCustomHeroMaxLevel(10)
 
 	GameMode:SetCustomXPRequiredToReachNextLevel(xp_table)
@@ -24,6 +23,7 @@ function GameSetup:init()
 	GameMode:SetGiveFreeTPOnDeath(false)
 	GameMode:ClearRuneSpawnFilter()
 
+	-- GameMode:SetTPScrollSlotItemOverride("item_world_travel_boots")
 
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 1 )
 	GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 1 )
@@ -37,7 +37,7 @@ function GameSetup:init()
 	GameRules:SetUseCustomHeroXPValues(true)
 	GameRules:SetSameHeroSelectionEnabled(true)
 	GameRules:SetStartingGold(START_GOLD)
-	GameRules:SetFirstBloodActive(true)
+	GameRules:SetFirstBloodActive(false)
 	GameRules:SetHideKillMessageHeaders(true)
 	GameRules:SetHeroMinimapIconScale(1.4)
 	GameRules:SetRuneMinimapIconScale(0.9)
@@ -58,6 +58,7 @@ function GameSetup:init()
 	-------------------------
 	GameMode:SetHUDVisible(DOTA_HUD_VISIBILITY_TOP_TIMEOFDAY, false)
 	GameMode:SetHUDVisible(DOTA_HUD_VISIBILITY_TOP_HEROES, false)
+	GameMode:SetHUDVisible(DOTA_HUD_VISIBILITY_TOP_SCOREBOARD, false)
 	-------------------------
 end
 

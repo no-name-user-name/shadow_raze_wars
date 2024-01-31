@@ -4,12 +4,14 @@ end
 
 function Precache( context )
 	PrecacheResource( "particle", "particles/leader/leader_overhead.vpcf", context )
+	PrecacheResource( "particle", "particles/leader/leader_overhead.vpcf", context )
 end
 
 require("settings")
+
 require('libraries/timers')
-require('libraries/fun')
-require('libraries/math')
+-- require('libraries/fun')
+-- require('libraries/math')
 require('libraries/playerresource')
 require('libraries/playertables')
 
@@ -40,28 +42,84 @@ function SRWarsGameMode:InitGameMode()
 	CustomGameEventManager:RegisterListener("setHunt", setHunt)
 	CustomGameEventManager:RegisterListener("setHunt", setHunt)
 	
-	
-
 	ListenToGameEvent("dota_player_gained_level", Dynamic_Wrap(SRWarsGameMode, "OnPlayerGainLevel"), self)
 	ListenToGameEvent("dota_player_pick_hero", Dynamic_Wrap(SRWarsGameMode, "OnPlayerPickHero"), self)
 	ListenToGameEvent("entity_killed", Dynamic_Wrap(SRWarsGameMode, "OnKill"), self)
 	ListenToGameEvent("dota_game_state_change", Dynamic_Wrap(SRWarsGameMode, "GameStateChange"), self)
+	-- ListenToGameEvent("dota_item_purchased", Dynamic_Wrap(SRWarsGameMode, "OnItemPurchase"), self)
+
+	GameRules:GetGameModeEntity():SetModifyGoldFilter( Dynamic_Wrap( SRWarsGameMode, "GoldFilter" ), self )
+	GameRules:GetGameModeEntity():SetModifyExperienceFilter( Dynamic_Wrap( SRWarsGameMode, "ExpFilter" ), self )
 
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
-	-- -createhero nevermore enemy
 end
 
----------------------------------------------------------------------------
--- Get the color associated with a given teamID
----------------------------------------------------------------------------
-function SRWarsGameMode:ColorForTeam( teamID )
-	local color = mTeamColors[ teamID ]
-	if color == nil then
-		color = { 255, 255, 255 } -- default to white
+-- function SRWarsGameMode:OnItemPurchase(keys)
+-- 	-- OnItemEquipped
+-- 	local playerID = keys.PlayerID
+-- 	local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+-- 	local item_name = "item_world_travel_boots"
+
+-- 	if hero:HasItemInInventory(item_name) then
+-- 		-- local item = hero:FindItemInInventory(item_name)
+-- 		-- local slot = item:GetItemSlot()
+-- 		-- hero:SwapItems(slot, 15)
+-- 	end
+-- end 
+
+-- Global gold filter function
+function SRWarsGameMode:GoldFilter(keys)
+	local reason = keys.reason_const
+	local sourceIndex = keys.source_entindex_const
+	local deadHero = EntIndexToHScript(sourceIndex)
+
+	if reason == 12 then 
+		if deadHero:HasModifier('kill_leader') then
+			keys.gold = keys.gold * 2
+		end
 	end
-	return color
+	return true
 end
----------------------------------------------------------------------------
+
+-- Global experience filter function
+function SRWarsGameMode:ExpFilter(keys)
+	local playerID = keys.player_id_const
+	local reason = keys.reason_const
+	local sourceIndex = keys.source_entindex_const
+	local exp  = keys.experience
+
+	local base_exp = 0
+	local comeback_exp = 0
+	local hunt_exp_multiply = 1
+
+	if reason == 1 then
+		local heroIndex = keys.hero_entindex_const
+
+		local killerHero = EntIndexToHScript(heroIndex)
+		local deadHero = EntIndexToHScript(sourceIndex)
+
+		local killerLVL = killerHero:GetLevel()
+		local deadLVL = deadHero:GetLevel()
+
+		local killerCurrentXP = killerHero:GetCurrentXP()
+		local deadCurrentXP = deadHero:GetCurrentXP()
+
+		if killerLVL ~= 30 then
+			base_exp = (xp_table[killerLVL + 1] - xp_table[killerLVL]) / 3
+
+			if deadLVL > killerLVL then
+				comeback_exp = (deadCurrentXP - killerCurrentXP) / 3
+			end
+	
+			if deadHero:HasModifier('kill_leader') then
+				hunt_exp_multiply = 2
+			end
+		end
+	end
+	keys.experience = base_exp * hunt_exp_multiply + comeback_exp
+	return true
+end
+
 
 function SRWarsGameMode:OnPlayerGainLevel(params)
 	local playerID = params.PlayerID
@@ -74,37 +132,20 @@ end
 
 function SRWarsGameMode:UpdateScoreboard()
 	local sortedTeams = {}
+
 	for _, team in pairs( self.tActiveTeams ) do
 		table.insert( sortedTeams, { teamID = team, teamScore = GetTeamHeroKills( team ) } )
 	end
-	-- -- reverse-sort by score
 	table.sort( sortedTeams, function(a,b) return ( a.teamScore > b.teamScore ) end )
-	-- for _, t in pairs( sortedTeams ) do
-	-- 	local clr = self:ColorForTeam( t.teamID )
 
-	-- 	-- Scaleform UI Scoreboard
-	-- 	local score = 
-	-- 	{
-	-- 		team_id = t.teamID,
-	-- 		team_score = t.teamScore
-	-- 	}
-	-- 	FireGameEvent( "score_board", score )
-	-- end
-
-	-- Leader effects (moved from OnTeamKillCredit)
-	if sortedTeams == nil then
-		-- print('no teams')
+	if #sortedTeams == 0 then
 		return	
-		
 	elseif #sortedTeams == 1 then
-		-- print('you solo')
 		return
 	end
 
 	local leader = sortedTeams[1].teamID
-	-- print("Leader = " .. leader)
 	self.leadingTeam = leader
-
 	self.runnerupTeam = sortedTeams[2].teamID
 	self.leadingTeamScore = sortedTeams[1].teamScore
 	self.runnerupTeamScore = sortedTeams[2].teamScore
@@ -127,7 +168,7 @@ function SRWarsGameMode:UpdateScoreboard()
 					for i, hero in pairs(allHeroes) do
 						local teamID = hero:GetTeamNumber()
 						if teamID ~= leader then
-							AddFOWViewer(teamID, leaderPos, 300, 1, true)
+							AddFOWViewer(teamID, leaderPos, 350, 1, true)
 						end
 					end
 				end
@@ -136,6 +177,8 @@ function SRWarsGameMode:UpdateScoreboard()
        				local particleLeader = ParticleManager:CreateParticle( "particles/leader/leader_overhead.vpcf", PATTACH_OVERHEAD_FOLLOW, entity )
 					ParticleManager:SetParticleControlEnt( particleLeader, PATTACH_OVERHEAD_FOLLOW, entity, PATTACH_OVERHEAD_FOLLOW, "follow_overhead", entity:GetAbsOrigin(), true )
 					entity:Attribute_SetIntValue( "particleID", particleLeader )
+					entity:AddNewModifier(entity, nil, "kill_leader", nil)
+
 				end
 			else
 				local particleLeader = entity:Attribute_GetIntValue( "particleID", -1 )
@@ -218,19 +261,14 @@ function SRWarsGameMode:OnKill(keys)
 	CustomGameEventManager:Send_ServerToAllClients( "update_score", tBroadcastEvent )
 
 	local victim =  EntIndexToHScript(keys.entindex_killed)
-	local nVictinID = victim:GetPlayerID()
-	local nVictimTeamID = PlayerResource:GetTeam(nVictinID)
+	local nVictimTeamID = victim:GetTeam()
 	local spawner = Entities:FindByName(nil, "player_" .. nVictimTeamID)
 	local allHeroes = HeroList:GetAllHeroes()
+	
+	victim:ClearStreak()
+	victim:SetRespawnPosition(GetSpawnPoint())
+	victim:SetModifierStackCount("modifier_nevermore_necromastery", nil, 20)
 
-	for _, hero in pairs(allHeroes) do
-		local hero_team = hero:GetTeam()
-		if hero_team == nVictimTeamID then
-			hero:SetRespawnPosition(GetSpawnPoint())
-			hero:SetModifierStackCount("modifier_nevermore_necromastery", nil, 20)
-			break
-		end
-	end
 end
 
 function SRWarsGameMode:OnPlayerPickHero(keys)
@@ -239,6 +277,15 @@ function SRWarsGameMode:OnPlayerPickHero(keys)
 	local unit =  EntIndexToHScript(keys.heroindex)
 	if unit:IsHero() then  
 		local player_id = unit:GetPlayerID()
+		local team = PlayerResource:GetTeam(player_id)
+		
+		local color = mTeamColors[team]
+		PlayerResource:SetCustomPlayerColor(player_id, color[1], color[2], color[3])
+
+		if self.tActiveTeams[team] == nil then
+			table.insert(self.tActiveTeams, team)
+		end
+		
 		local raze = unit:GetAbilityByIndex(1)
 		local necro = unit:GetAbilityByIndex(3)
 		local podl = unit:GetAbilityByIndex(4)
@@ -249,31 +296,21 @@ function SRWarsGameMode:OnPlayerPickHero(keys)
 		podl:SetLevel(4)
 		req:SetLevel(1)
 
-		local allHeroes = HeroList:GetAllHeroes()
-		local team = PlayerResource:GetTeam(player_id)
+		unit:SetRespawnPosition(GetSpawnPoint())
+		unit:SetModifierStackCount("modifier_nevermore_necromastery", nil, 20)
 
-		if self.tActiveTeams[team] == nil then
-			table.insert(self.tActiveTeams, team)
-		end
-		
-		for _, hero in pairs(allHeroes) do
-			local hero_team = hero:GetTeam()
-			if hero_team == team then
-				hero:SetRespawnPosition(GetSpawnPoint())
-				hero:SetModifierStackCount("modifier_nevermore_necromastery", nil, 20)
+		-- unit:AddNewModifier(unit, nil, "zero_souls", nil)
+		unit:AddNewModifier(unit, nil, "custom_attack", nil)
+		unit:AddNewModifier(unit, nil, "spells_upgrade", nil)			
 
-				hero:AddNewModifier(hero, nil, "zero_souls", nil)
-				hero:AddNewModifier(hero, nil, "custom_attack", nil)
-				hero:AddNewModifier(hero, nil, "spells_upgrade", nil)			
+		unit:SetModifierStackCount("spells_upgrade", nil, 0)
+		pcall(function()unit:FindItemInInventory("item_tpscroll"):Destroy()end)
 
-				hero:SetModifierStackCount("spells_upgrade", nil, 0)
-				pcall(function()hero:FindItemInInventory("item_tpscroll"):Destroy()end)
-				break
-			end
-		end
+		-- local hItem = CreateItem("item_world_travel_boots", nil, nil)
+		-- unit:AddItem(hItem)
+
 	end
 end
-
 
 function SRWarsGameMode:EndGame( victoryTeam )
 	-- local tTeamScores = {}
@@ -281,12 +318,10 @@ function SRWarsGameMode:EndGame( victoryTeam )
 	-- 	tTeamScores[team] = GetTeamHeroKills(team)
 	-- end
 	-- CustomGameEventManager:Send_ServerToAllClients( "final_scores", tTeamScores )
-
 	GameRules:SetCustomVictoryMessage( m_VictoryMessages[victoryTeam] )
 	GameRules:SetGameWinner( victoryTeam )
 end
 
--- Evaluate the state of the game
 function SRWarsGameMode:OnThink()
 	if GameRules:IsGamePaused() == true then
         return 1

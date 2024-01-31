@@ -10,6 +10,7 @@
 			<Panel id='PlayerPortraitOverlay'>
 				<Image id="PlayerPortrait"/>
 				<Panel id="PlayersContainer" />
+			</Panel>
 		<Label id="TeamScore" />
 		<Panel id="TeamLogo" />
 		</Panel>

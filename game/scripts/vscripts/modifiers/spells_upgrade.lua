@@ -65,6 +65,10 @@ function  spells_upgrade:IsDebuff()	return false end
 --     end
 -- end
 
+function spells_upgrade:GetTexture()
+	return "item_spells_upgrade"
+end
+
 function spells_upgrade:GetModifierSpellAmplify_Percentage()
 	return 15 * self:GetStackCount()
 end

@@ -36,7 +36,7 @@
 		"AttributeIntelligenceGain"	"0"
         "AttributeStrengthGain"     "1"    
         "AttributeAgilityGain"	    "0"
-		"VisionDaytimeRange"        "2500"           
+		"VisionDaytimeRange"        "1500"           
         "VisionNighttimeRange"      "650"            
         // "ModelScale"				"0.5"
     }

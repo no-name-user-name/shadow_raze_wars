@@ -28,6 +28,9 @@
 		"DOTA_Tooltip_spells_upgrade" "Усиление способностей"
 		"DOTA_Tooltip_spells_upgrade_Description" "+15 процентов к урону ShadowRaze и Requiem за каждый уровень персонажа"
 
+		"DOTA_Tooltip_kill_leader"				"На Вас обьявлена охота!"
+		"DOTA_Tooltip_kill_leader_Description"	"Вам не спрятаться ни в инвизе ни в тумане войны. Враг, убивший вас, получит удвоеный опыт и золото"
+
 		"killsMode" "Убийств:"
 		"kills1" "До 10 убийств"
 		"kills2" "До 20 убийств"
@@ -44,5 +47,13 @@
 		"HuntMode" "Режим охоты:"
 		"HuntOn" "Вкл"
 		"HuntOff" "Выкл"
+
+		"DOTA_Tooltip_Ability_item_world_travel_boots"                                "Мировые сапоги транспортировщики"
+		"DOTA_Tooltip_Ability_item_recipe_world_travel_boots"                         "Рецепт Мировых сапогов транспортировщиков"
+		"DOTA_Tooltip_Ability_item_world_travel_boots_Lore"                           "Вы тупо висп"
+		"DOTA_Tooltip_Ability_item_world_travel_boots_bonus_movement_speed"           "+$move_speed"
+		"item_world_travel_boots_ability_Description"                                 "<h1>Активка: Телепорт</h1> Телепортирует в любое место на карте. Применение на себя = телепортация в случайное место на карте."
+		"DOTA_Tooltip_Ability_item_world_travel_boots_Description"                    "<h1>Активка: Телепорт</h1> Телепортирует в любое место на карте. Применение на себя = телепортация в случайное место на карте."
+	
 	}
 }

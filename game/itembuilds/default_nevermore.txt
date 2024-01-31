@@ -16,7 +16,7 @@
 		
 		"#DOTA_Item_Build_Early_Game"
 		{
-			"item1"		"item_phase_boots"
+
 			"item2"		"item_magic_wand"
 		}
 		
@@ -28,14 +28,14 @@
 		
 		"#DOTA_Item_Build_Late_Items"
 		{
-			"item1"		"item_yasha_and_kaya"
+			"item1"		"item_world_travel_boots"
 			"item2"  	"item_shivas_guard"
 		}
 
 		"#DOTA_Item_Build_Luxury"
 		{
-			"item1"		"item_nullifier"
-			"item2"  	"item_ethereal_blade"
+			"item1"		"item_gungir"
+			"item2"  	"item_overwhelming_blink"
 		}
 	}
 }
