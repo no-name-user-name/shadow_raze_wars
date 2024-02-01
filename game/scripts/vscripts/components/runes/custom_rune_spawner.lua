@@ -40,7 +40,7 @@ function RuneSpawner:SpawnRune()
     local clearSpawners = {}
     local badSpawners = {}
 	local spawners = Entities:FindAllByName('custom_rune_spawner')
-
+    print(dump(spawners))
     while #spawners ~= 0 do
         local randomSpawner = spawners[math.random(#spawners)]
         local spawnPosition = randomSpawner:GetOrigin()
