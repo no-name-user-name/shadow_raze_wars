@@ -58,6 +58,7 @@
                                 "item"          "item_magic_wand"
                         //         "item"          "item_phase_boots"
                                "item"          "item_world_travel_boots"
+                        //        "item"           "item_ability_fire_set_activator"
                                "item"           "item_refresher"
         }
 

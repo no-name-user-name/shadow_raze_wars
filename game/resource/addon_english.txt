@@ -55,5 +55,14 @@
 		"item_world_travel_boots_ability_Description"                                 "<h1>Active: Teleport</h1> Teleports to any location on the map. Cast on yourself = teleport to a random location on the map."
 		"DOTA_Tooltip_Ability_item_world_travel_boots_Description"                    "<h1>Active: Teleport</h1> Teleports to any location on the map. Cast on yourself = teleport to a random location on the map."
 	
+
+		"DOTA_Tooltip_Ability_item_ability_fire_set_activator"                                "Ability Fire Set Activator"
+		"DOTA_Tooltip_Ability_item_ability_fire_set_activator_Lore"                           "hz lore"
+		// "DOTA_Tooltip_Ability_item_ability_fire_set_activator_bonus_movement_speed"           "+$move_speed"
+		"item_ability_fire_set_activator_ability_Description"                                 "<h1>Passive: Fire Abilities</h1> Info here."
+		"DOTA_Tooltip_Ability_item_ability_fire_set_activator_Description"                    "<h1>Passive: Fire Abilities</h1> Info here."
+		
+		"DOTA_Tooltip_abilities_fire_set"								  "Fire Abiblities"
+	
 	}
 }

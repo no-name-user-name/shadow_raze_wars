@@ -51,6 +51,50 @@
 	//
 
 
+	// =================================================================================================================
+	// item_ability_fire_set_activator
+	// =================================================================================================================
+    // "item_ability_fire_set_activator"
+    // {
+    //     // General
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "BaseClass"                                           "item_lua"
+    //     "ScriptFile"                                          "items/item_ability_fire_set_activator.lua"
+    //     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+	// 	// "AbilityBehavior"									  "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        
+	// 	"AbilityUnitTargetTeam"                               "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    //     "AbilityUnitTargetType"                               "DOTA_UNIT_TARGET_HERO"
+    //     "AbilityUnitTargetFlags"                              "DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+    //     "AbilityTextureName"                                  "ability_fire_set_activator"
+
+    //     // Stats
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     // "AbilityCooldown"                                     "30"
+    //     // "AbilitySharedCooldown"                               "travel"
+    //     // "AbilityChannelTime"                                  "3.0"
+    //     // "AbilityManaCost"                                     "0"
+
+    //     // Item Info
+    //     //-------------------------------------------------------------------------------------------------------------
+    //     "ItemCost"                                            "1"
+    //     "ItemShopTags"                                        "set;ability"
+    //     "ItemQuality"                                         "rare"
+    //     "ItemAliases"                                         "fire;set"
+    //     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
+    //     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_SPECTATORS"
+
+    //     "MaxUpgradeLevel"                                     "1"
+    //     "ItemBaseLevel"                                       "1"
+		
+	// 	"ItemPermanent"					"0"
+	// 	"ItemStockTime"					"1"			  
+	// 	"ItemStockInitial"				"0"
+	// 	"ItemStockMax"					"1"
+	// 	"ItemInitialStockTime"			"0"
+	// 	// "ItemInitialStockTime"			"300"
+	// 	"ShouldBeSuggested"				"1"
+    // }
 
 	//=================================================================================================================
 	// Blink dagger
@@ -23343,44 +23387,44 @@
 
 	//=================================================================================================================
 
-	"item_recipe_ironwood_tree"
+	// "item_recipe_ironwood_tree"
 
-	{
+	// {
 
-		"ItemPurchasable"	"0"
-		// General
+	// 	"ItemPurchasable"	"0"
+	// 	// General
 
-		//-------------------------------------------------------------------------------------------------------------
-
-		
-
-		// Item Info
-
-		//-------------------------------------------------------------------------------------------------------------
-
-		"ItemCost"						"1"
-
-		"ItemIsNeutralDrop"				"1"
-
-		"ItemPurchasable"				"0"
-
-		"ItemSellable"				"0"
-
-
-
-		"Model"							"models/props_gameplay/neutral_box.vmdl"
+	// 	//-------------------------------------------------------------------------------------------------------------
 
 		
 
-		// Recipe
+	// 	// Item Info
 
-		//-------------------------------------------------------------------------------------------------------------
+	// 	//-------------------------------------------------------------------------------------------------------------
 
-		"ItemRecipe"					"1"
+	// 	"ItemCost"						"1"
 
-		"ItemResult"					"item_ironwood_tree"
+	// 	"ItemIsNeutralDrop"				"1"
 
-	}
+	// 	"ItemPurchasable"				"0"
+
+	// 	"ItemSellable"				"0"
+
+
+
+	// 	"Model"							"models/props_gameplay/neutral_box.vmdl"
+
+		
+
+	// 	// Recipe
+
+	// 	//-------------------------------------------------------------------------------------------------------------
+
+	// 	"ItemRecipe"					"1"
+
+	// 	"ItemResult"					"item_ironwood_tree"
+
+	// }
 
 
 

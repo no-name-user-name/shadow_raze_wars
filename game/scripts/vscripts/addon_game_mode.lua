@@ -52,6 +52,12 @@ function SRWarsGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetModifyExperienceFilter( Dynamic_Wrap( SRWarsGameMode, "ExpFilter" ), self )
 
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
+
+	-- local test_hero = CreateUnitByName("npc_dota_hero_nevermore", Vector(-500, -320, 189), true, nil, nil, DOTA_TEAM_CUSTOM_6)
+	-- if test_hero then
+    --     test_hero:SetControllableByPlayer(0, true) -- Установите контролируемого игрока (0 - первый игрок)
+    --     -- test_hero:SetOwner(nil) -- Установите владельца, если нужно
+    -- end
 end
 
 -- function SRWarsGameMode:OnItemPurchase(keys)
@@ -119,7 +125,6 @@ function SRWarsGameMode:ExpFilter(keys)
 	keys.experience = base_exp * hunt_exp_multiply + comeback_exp
 	return true
 end
-
 
 function SRWarsGameMode:OnPlayerGainLevel(params)
 	local playerID = params.PlayerID
@@ -302,6 +307,8 @@ function SRWarsGameMode:OnPlayerPickHero(keys)
 		-- unit:AddNewModifier(unit, nil, "zero_souls", nil)
 		unit:AddNewModifier(unit, nil, "custom_attack", nil)
 		unit:AddNewModifier(unit, nil, "spells_upgrade", nil)			
+		
+		-- unit:AddNewModifier(unit, nil, "abilities_fire_set", nil)					
 
 		unit:SetModifierStackCount("spells_upgrade", nil, 0)
 		pcall(function()unit:FindItemInInventory("item_tpscroll"):Destroy()end)

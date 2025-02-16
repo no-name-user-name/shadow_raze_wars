@@ -54,5 +54,14 @@
 		"DOTA_Tooltip_Ability_item_world_travel_boots_bonus_movement_speed" "+$move_speed"
 		"item_world_travel_boots_ability_Description" "<h1>主动：传送</h1>传送到地图上的任何位置。对自己施展 = 传送到地图上的随机位置。"
 		"DOTA_Tooltip_Ability_item_world_travel_boots_Description" "<h1>主动：传送</h1>传送到地图上的任何位置。对自己施展 = 传送到地图上的随机位置。"
+
+		
+		"DOTA_Tooltip_Ability_item_ability_fire_set_activator"                                "Ability Fire Set Activator"
+		"DOTA_Tooltip_Ability_item_ability_fire_set_activator_Lore"                           "hz lore"
+		// "DOTA_Tooltip_Ability_item_ability_fire_set_activator_bonus_movement_speed"           "+$move_speed"
+		"item_ability_fire_set_activator_ability_Description"                                 "<h1>Passive: Fire Abilities</h1> Info here."
+		"DOTA_Tooltip_Ability_item_ability_fire_set_activator_Description"                    "<h1>Passive: Fire Abilities</h1> Info here."
+		
+		"DOTA_Tooltip_abilities_fire_set"								  "Fire Abiblities"
 	}
 }

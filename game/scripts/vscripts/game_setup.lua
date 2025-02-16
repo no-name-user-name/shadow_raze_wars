@@ -9,6 +9,7 @@ require('components/index')
 function GameSetup:init()
 	GameRules:EnableCustomGameSetupAutoLaunch(true)
 	GameRules:SetCustomGameSetupAutoLaunchDelay(60) -- !!!!!!!!!!!!
+	-- GameRules:SetCustomGameSetupAutoLaunchDelay(0) -- !!!!!!!!!!!!
 
 	local GameMode = GameRules:GetGameModeEntity()
 
